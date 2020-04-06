@@ -1,2 +1,2 @@
 # webtoon-crawler
-Crawler for Webtoons with Node.js
+Crawlers for Webtoon with Node.js
