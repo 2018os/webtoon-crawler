@@ -15,7 +15,7 @@ const crawl = () => {
         isAdult: data.ageGrade >= 19,
         isPay: data.payYn === "Y",
         isFinish: data.finishYn === "Y",
-        url: `${DAUM}/webtoon/view/${data.nickname}`,
+        url: data.nickname,
         author:
           data.cartoon.artists[0].name == data.cartoon.artists[1].name
             ? data.cartoon.artists[0].name
