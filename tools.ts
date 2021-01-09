@@ -2,7 +2,7 @@ import { load } from "cheerio";
 import ObjectsToCsv from "objects-to-csv";
 import request, { Options } from "sync-request";
 
-export const NAVER = "http://comic.naver.com/webtoon";
+export const NAVER = "comic.naver.com/webtoon";
 
 export const DAUM = "http://webtoon.daum.net";
 

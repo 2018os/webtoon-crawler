@@ -58,7 +58,7 @@ const crawl = () => {
 
   // mobile list not finish
   weekday.map((day) => {
-    const src = `https://m.comic.naver.com/webtoon/weekday.nhn?week=${day}`;
+    const src = `https://m.${NAVER}/weekday.nhn?week=${day}`;
     const $ = requestAndLoad(src);
     const list = $(".list_toon li");
     list.map((ele, j) => {
