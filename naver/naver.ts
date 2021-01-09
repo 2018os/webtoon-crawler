@@ -1,34 +1,6 @@
-import request from "sync-request";
-import { load } from "cheerio";
-import ObjectsToCsv from "objects-to-csv";
+import { MobileNaverWebtoon, NaverWebtoon } from "../types";
 
-const NAVER = "comic.naver.com/webtoon";
-
-type Platform = "NAVER" | "DAUM";
-
-type MobileNaverWebtoon = {
-  title: String;
-  platform: Platform;
-  isFinish: Boolean;
-  isAdult: Boolean;
-  isPay: Boolean;
-  thumbnail: string;
-  url: string;
-  author: string;
-};
-
-type PcNaverWebtoon = {
-  description: String;
-  genres: string;
-};
-
-type NaverWebtoon = MobileNaverWebtoon & PcNaverWebtoon;
-
-const requestAndLoad = (url: string) => {
-  const res = request("GET", url);
-  const html = res.getBody();
-  return load(html);
-};
+import { NAVER, requestAndLoad, save } from "../tools";
 
 const crawl = () => {
   const webtoons = [];
@@ -130,8 +102,7 @@ const crawl = () => {
 const main = async () => {
   try {
     const webtoons = crawl();
-    const csv = new ObjectsToCsv(webtoons);
-    csv.toDisk("/Users/seungyeop-kim/csv/naver.csv");
+    save(webtoons, "/Users/seungyeop-kim/csv/naver.csv");
   } catch (err) {
     console.log(err);
   }
